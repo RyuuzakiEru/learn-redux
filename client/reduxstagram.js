@@ -20,7 +20,7 @@ import store, {history} from './store'
 
 //Sentry Integration
 import Raven from 'raven-js';
-import { sentry_url } from './data/config'
+import { sentry_url , logException} from './data/config'
 Raven.config(sentry_url).install();
 
 
