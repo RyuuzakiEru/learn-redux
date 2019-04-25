@@ -3,12 +3,19 @@ function postComments(state = [], action) {
     case 'ADD_COMMENT':
       //return existing state with new comment
 
-      return [...state, {
-        user: action.author,
-        text: action.comment,
-      }];
+      return [
+        ...state,
+        {
+          user: action.author,
+          text: action.comment
+        }
+      ];
     case 'REMOVE_COMMENT':
-      return state;
+      const {i} = action;
+      return [
+        ...state.slice(0, i), // elements before i
+        ...state.slice(i + 1) // elements after i
+      ];
     default:
       return state;
   }
